@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISPLAY BOOKS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background Image + Blur */
+    body::before {
+      content: "";
+      background: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1740&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      filter: blur(6px);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 1;
+      /* background: rgba(255,255,255,0.1); light transparent white background */
+      padding: 40px;
+      /* border-radius: 12px; */
+      /* box-shadow: 0 8px 20px rgba(0,0,0,0.3); */
+      /* backdrop-filter: blur(5px); */
+      max-width: 1000px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px 15px;
+      width: 250px;
+      max-width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #217dbb;
+    }
+
+    .btn.back {
+      background-color: #28a745;
+    }
+
+    .btn.back:hover {
+      background-color: #218838;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    th,
+    td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    @media (max-width: 600px) {
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      tr {
+        margin-bottom: 15px;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <form action="/books/displayBook" method="post">
+      <h1>BOOKSDETAILS</h1>
+
+      <div class="search-container">
+        <input type="text" id="search" name="BookId" placeholder="Enter BookId" required><br>
+        <button class="btn" type="submit">Display</button>
+        <button class="btn" type="button" onclick="window.location.href='/books/displayAll';">Display All</button>
+        <button class="btn back" type="button" onclick="Back()">Back</button>
+      </div>
+
+      <% if(message) { %>
+        <p style="color:red;">
+          <%= message %>
+        </p>
+        <% } %>
+
+         
+            <% if(books && books.length > 0) { %>
+              <table>
+                <thead>
+                  <tr>
+                    <th>BOOK ID</th>
+                    <th>TITLE</th>
+                    <th>GENRE</th>
+                    <th>PUB_YEAR</th>
+                    <th>AUTHOR ID </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% books.forEach(book => { %>
+                    <tr>
+                      <td data-label="BOOK ID">
+                        <%= book.BookId %>
+                      </td>
+                      <td data-label="TITLE">
+                        <%= book.title %>
+                      </td>
+                      <td data-label="GENRE">
+                        <%= book.genre %>
+                      </td>
+                      <td data-label="PUBLICATION YEAR">
+                        <%= book.publication_year %>
+                      </td>
+                      <td data-label="AUTHOR ID">
+                        <%= book.AuthorId %>
+                      </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+          <% } else { %>
+              <p>No books found</p>
+          <% } %>
+          
+
+    </form>
+  </div>
+
+</body>
+<script>
+  function Back() {
+    window.location.href = '/books'
+  }
+</script>
+
+</html>

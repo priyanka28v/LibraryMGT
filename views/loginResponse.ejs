@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Response</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8d7da;
+            font-family: Arial, sans-serif;
+        }
+
+        .error-box {
+            text-align: center;
+            background: #721c24;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .signup-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #f5c6cb;
+            border: none;
+            color: #721c24;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #f1b0b7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-box">
+        <h1>USER NOT EXISTS, PLEASE SIGN UP FIRST!!</h1>
+        <button class="signup-btn" onclick="Signup()">Go to Signup</button>
+    </div>
+
+    <script>
+        function Signup() {
+            window.location.href = '/signup'; // Change to actual signup page URL
+        }
+    </script>
+</body>
+
+</html>

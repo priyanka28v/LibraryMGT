@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Page</title>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Author Details</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Dark transparent overlay for readability */
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 0;
+            }
+
+            h1 {
+                color: #fff;
+                z-index: 1;
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .btn-container {
+                z-index: 1;
+            }
+
+            button {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                margin: 10px;
+                font-size: 16px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: transform 0.2s, background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+            button:active {
+                transform: scale(0.95);
+            }
+        </style>
+
+    <body>
+        <h1>WELCOME TO BOOKS PAGE</h1>
+        <div class="btn-container">
+            <button onclick="AddBook()">Add Book</button>
+            <button onclick="UpdateBook()">Update Book</button>
+            <button onclick="DeleteBook()">Delete Book</button>
+            <button onclick="DisplayBook()">Display Book</button>
+            <button onclick="Back()">Back</button>
+        </div>
+
+        <script>
+            function AddBook() {
+                window.location.href = '/books/add';
+            }
+            function UpdateBook() {
+                window.location.href = '/books/updateBookId';
+            }
+            function DeleteBook() {
+                window.location.href = '/books/delete';
+            }
+            function DisplayBook() {
+                window.location.href = '/books/display';
+            }
+            function Back() {
+                window.location.href = "/home2";
+            }
+        </script>
+    </body>
+
+    </html>

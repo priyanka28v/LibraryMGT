@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Author Updated</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      text-align: center;
+      width: 400px;
+      color: #333;
+    }
+
+    .icon {
+      font-size: 50px;
+      color: #2ecc71;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      opacity: 0.9;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: #1d87ce;
+    }
+
+    .button.back {
+      background-color: #27ae60;
+    }
+
+    .button.back:hover {
+      background-color: #219150;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Blurred Background Layer -->
+  <div class="background-blur"></div>
+
+  <!-- Content Container -->
+  <div class="container">
+    <div class="icon">✔️</div>
+    <h1>Author Has Been Updated</h1>
+    <p>The author has been successfully updated to the library database.</p>
+    <div class="buttons">
+      <a href="/authors/display" class="button">View Authors</a>
+      <a href="/authors/updateAuthorId" class="button"> New Author Update</a>
+      <a href="/authors" class="button back">Back</a>
+    </div>
+  </div>
+
+</body>
+
+</html>

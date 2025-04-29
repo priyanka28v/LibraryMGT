@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD AUTHOR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/books/updateBook" method="post">
+        <h1>UPDATE BOOK DETAILS</h1>
+        <fieldset>
+
+            <input type="text" name="BookId" value="<%= book.BookId %>" readonly>
+
+            <label for="title">TITLE:</label>
+            <input type="text" placeholder="ENTER TITLE" id="title" name="title" value="<%= book.title %>" required>
+
+            <label for="genre">ENTER GENRE:</label>
+            <input type="text" placeholder="ENTER GENRE" id="genre" name="genre" value="<%= book.genre %>" required>
+
+            <label for="publicationYear">ENTER PUBLICATION YEAR:</label>
+            <input type="text" placeholder="ENTER PUBLICATION YEAR" id="publicationYear" name="publication_year"
+                value="<%= book.publication_year %>" required>
+
+            <label for="AuthorId">ENTER AUTHOR ID:</label>
+            <input type="text" placeholder="ENTER AUTHOR ID" id="AuthorId" name="AuthorId" value="<%= book.AuthorId %>"
+                required>
+
+            <button type="submit">UPDATE</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

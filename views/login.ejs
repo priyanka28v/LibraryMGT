@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            background: url('https://static.vecteezy.com/system/resources/thumbnails/045/697/776/small_2x/many-books-on-a-shelf-in-a-library-photo.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            text-transform: uppercase;
+        }
+
+        label {
+            color: #f1f1f1;
+            font-size: 15px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: gray;
+        }
+
+        input:focus {
+            border: 2px solid #3498db;
+        }
+
+        .button {
+            width: 100%;
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            background: #e74c3c;
+        }
+
+        .back-button:hover {
+            background: #c0392b;
+        }
+
+        /* Forgot password link */
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #d90d0d;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #e3ebf0;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message,
+        .success-message {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        p a {
+            color: #00c6ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay"></div> <!-- Dark background overlay -->
+
+    <div class="login-container">
+        <h2>LIBRARY MANAGEMENT</h2>
+        <form action="/postUser" method="POST">
+            <label for="email">Enter Your Email</label>
+            <input type="email" id="email" placeholder="EMAIL" name="email" required>
+
+            <label for="password">Enter Your Password</label>
+            <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+
+            <button class="button" type="submit">Login</button>
+            <!-- <button class="button back-button" type="button" onclick="window.history.back();">Back</button> -->
+
+            <div class="forgot-password">
+                <a href="/forgot-password">Forgot Password?</a>
+            </div>
+
+            <% if (error) { %>
+                <p class="error-message">
+                    <%= error %>
+                </p>
+                <% } %>
+                    <% if (success) { %>
+                        <p class="success-message">
+                            <%= success %>
+                        </p>
+                        <% } %>
+                            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </form>
+    </div>
+
+</body>
+
+</html>
